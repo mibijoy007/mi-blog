@@ -23,7 +23,7 @@ export function formatedTitle(title:string){
       // console.log(isNaN(Number(item)));
 
       if(isNaN(Number(item))) {
-          let capitalized = item.charAt(0).toUpperCase()+item.slice(1);
+          const capitalized = item.charAt(0).toUpperCase()+item.slice(1);
           finalTitle += capitalized + ' '
       }
       

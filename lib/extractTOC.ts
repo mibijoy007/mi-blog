@@ -4,7 +4,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { visit } from 'unist-util-visit'
 import rehypeStringify from 'rehype-stringify'
-
+import remarkFrontmatter from 'remark-frontmatter'
 type HeadingNode = {
     type: 'element';
     tagName: string; // e.g., "h1", "h2", etc.
@@ -18,6 +18,7 @@ export function extractTOCFromSource(source: string): TocItem[] {
   
     unified()
       .use(remarkParse)
+      .use(remarkFrontmatter)
       .use(remarkRehype)
       .use(rehypeStringify)
       .use(() => (tree) => {

@@ -8,7 +8,7 @@ import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
 // import { Icons } from "./icons";
 import { siteConfig } from "@/lib/siteConfig";
-import { FaCloudSun, FaGithub } from "react-icons/fa";
+import {  FaGithub } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
 export function MobileNav() {
@@ -26,11 +26,13 @@ export function MobileNav() {
         <MobileLink
           onOpenChange={setOpen}
           href="/"
-          className="flex items-center"
+          className=""
         >
-          {/* <Icons.logo className="mr-2 h-4 w-4" /> */}
-          <FaCloudSun className="mr-2 h-6 w-6"/>
-          <span className="font-bold">{siteConfig.name}</span>
+          {/* <FaCloudSun className="mr-2 h-6 w-6" /> */}
+          <span className="font-bold text-lg font-serif">{siteConfig.name}</span>
+
+          <div className="my-2 bg-gray-200 dark:bg-slate-800 w-full h-[1.5px] rounded-full" />
+
         </MobileLink>
         <div className="flex flex-col gap-3 mt-3">
           <MobileLink onOpenChange={setOpen} href="/docs">
@@ -39,22 +41,27 @@ export function MobileNav() {
           <MobileLink onOpenChange={setOpen} href="/about">
             About
           </MobileLink>
-            <div className="my-2 bg-gray-200 dark:bg-slate-800 w-full h-[1.5px] rounded-full" />
+          <MobileLink onOpenChange={setOpen} href="/contact">
+            Contact
+          </MobileLink>
+
+          <div className="my-2 bg-gray-200 dark:bg-slate-800 w-full h-[1.5px] rounded-full" />
+          
           <div className="flex items-center justify-center gap-6 ">
-          <Link target="_blank" rel="noreferrer" 
-          href={siteConfig.links.github}
-          >
-            <FaGithub className="h-6 w-6"/>
-            <span className="sr-only">GitHub</span>
-          </Link>
-          <Link
-            target="_blank"
-            rel="noreferrer"
-            href={siteConfig.links.twitter}
-          >
-            <FaSquareXTwitter className="h-6 w-6"/>
-            <span className="sr-only">Twitter</span>
-          </Link>
+            <Link target="_blank" rel="noreferrer"
+              href={siteConfig.links.github}
+            >
+              <FaGithub className="h-6 w-6" />
+              <span className="sr-only">GitHub</span>
+            </Link>
+            <Link
+              target="_blank"
+              rel="noreferrer"
+              href={siteConfig.links.twitter}
+            >
+              <FaSquareXTwitter className="h-6 w-6" />
+              <span className="sr-only">Twitter</span>
+            </Link>
           </div>
         </div>
       </SheetContent>
@@ -68,7 +75,7 @@ interface MobileLinkProps extends LinkProps {
   className?: string;
 }
 
-function MobileLink({href,onOpenChange,children,className,...props}: MobileLinkProps) {
+function MobileLink({ href, onOpenChange, children, className, ...props }: MobileLinkProps) {
   const router = useRouter();
   return (
     <Link

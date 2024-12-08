@@ -117,8 +117,8 @@ const CodeComponent: FC<CodeComponentProps> = ({ children, ...props }) => {
             <div className=" ">
 
 
-                <div className="flex  justify-between border-b border-gray-600">
-                    <div className="p-2 ml-2">
+                <div className="flex  justify-between items-center border-b border-gray-600">
+                    <div className="ml-2 ">
                         {fileExtension}
                     </div>
 
@@ -128,7 +128,7 @@ const CodeComponent: FC<CodeComponentProps> = ({ children, ...props }) => {
                 </button>  */}
                     <button
                         onClick={handleCopy}
-                        className=" bg-blue-500 text-white   px-3 py-0 rounded hover:bg-blue-600 transition"
+                        className="m-1 px-3 bg-blue-500 text-white    rounded hover:bg-blue-600 transition"
                     >
                         {copied ? "Copied!" : "Copy"}
                     </button>

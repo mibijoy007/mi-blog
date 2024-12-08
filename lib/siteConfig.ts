@@ -1,11 +1,12 @@
 export const siteConfig = {
-    name: "WorkerRuntime",
+    name: "Mi's",
     url: "https://www.google.com",
-    description: "Documentation for worker runtime with nextjs14 , typescript, mdx",
+    description: "A Blog made by Mi using nextjs14, typescript, MDX, tailwind, shadcn, ",
     author: "mibijoy007",
     links: {
-      twitter: "https://twitter.com/",
-      github: "https://github.com/",
+      twitter: "https://x.com/MaksudulIslam71",
+      github: "https://github.com/mibijoy007",
+      linkedIn: "https://www.linkedin.com/in/maksudul998/"
       
     },
   };

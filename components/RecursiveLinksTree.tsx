@@ -1,4 +1,4 @@
-import { NodeType } from "@/lib/getAllBlogLinks";
+import { NodeType } from "@/lib/getAllBlog";
 import Link from "next/link";
 
 

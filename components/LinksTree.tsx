@@ -1,4 +1,4 @@
-import { getAllBlogLinks, NodeType } from "@/lib/getAllBlogLinks";
+import { getAllBlogLinks, NodeType } from "@/lib/getAllBlog";
 import { formatedTitle } from "@/lib/utils";
 import Link from "next/link";
 import { GoVersions } from "react-icons/go";

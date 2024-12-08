@@ -1,14 +1,11 @@
-import fs from "node:fs";
-import { compileMDX } from "next-mdx-remote/rsc";
-import path from "node:path";
-import type { MDXComponents } from "mdx/types";
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
-import 'highlight.js/styles/atom-one-dark-reasonable.css'
-import { extractTOCFromSource } from "@/lib/extractTOC";
-import rehypeSlug from "rehype-slug";
+
 import { TableOfContents } from "@/components/Toc";
+import compileMDXFunc from "@/lib/compileMDX";
+import { extractTOCFromSource } from "@/lib/extractTOC";
+import { notFound } from "next/navigation";
+import fs from "node:fs";
+import path from "node:path";
+
 
 export async function generateStaticParams() {
   // Get the list of all MDX files from the docs folder
@@ -19,20 +16,12 @@ export async function generateStaticParams() {
       slug: slug.split("/"),
     };
   });
+  // console.log("static params (paths) >> " , paths);
+
   return paths;
 }
 
-//dynamically  importing
-import dynamic from "next/dynamic";
-const CodeComponent = dynamic(() => import("../../../components/CopyCode"), { ssr: false, })
 
-const customComponents: MDXComponents = {
-  pre: ({ children, ...props }: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>) => (
-    <pre {...props} className=" p-0 rounded-lg border border-gray-500 ">
-      <CodeComponent>{children}</CodeComponent>
-    </pre>
-  ),
-};
 
 
 export default async function SingleBlogPage({
@@ -41,49 +30,38 @@ export default async function SingleBlogPage({
   params: { slug: string[] };
 }) {
   // console.log("FULL PARAMS:", params);
-
-  const slugPath = params.slug.join("/");
-  const filePath = path.join(
-    process.cwd(),
-    "content",
-    "docs",
-    slugPath,
-    "page.mdx"
-  );
-
   try {
+    const slugPath = params.slug.join("/");
+    const filePath = path.join(
+      process.cwd(),
+      "content",
+      "docs",
+      slugPath,
+      "page.mdx"
+    );
+
     const fileContent = await fs.promises.readFile(filePath, "utf-8");
-
-    const compiledMDX = await compileMDX({
-      source: fileContent,
-      components: customComponents,
-      options: {
-        parseFrontmatter: true,
-        mdxOptions: {
-          remarkPlugins: [remarkGfm],
-          rehypePlugins: [
-            [rehypeHighlight],
-            rehypeSlug,
-          ],
-        },
-      },
-    });
-
     const toc = extractTOCFromSource(fileContent)
 
+    const compiledMDX = await compileMDXFunc(fileContent)
+
+    if (!compiledMDX || !compiledMDX.frontmatter.published) {
+      notFound()
+    }
+
     return (
-      <div className="top-10 min-h-dvh ">
-       
+      <div className="min-h-dvh">
+
         {/* main content */}
-        <div className="flex ">
-          <div className=" ml-5  prose dark:prose-invert ">
-            {/* Frontmatter Title : {compiledMDX.frontmatter.title as string} */}
-            <article className="w-[42rem]">{compiledMDX.content}</article>
+        <div className="lg:flex container  mx-auto max-w-3xl prose dark:prose-invert ">
+          <div className="">
+            Frontmatter Title : {compiledMDX.frontmatter.title as string}
+            <article className="w-[28rem] md:w-[35rem] lg:w-[50rem] max-w-3xl mx-auto text-lg">{compiledMDX.content}</article>
           </div>
 
-          {/* toc */}
-          <div className="ml-40 flex  ">
-            <aside>
+          {/* <div className="flex  ml-44 "> */}
+          <div className="hidden lg:flex ml-5  ">
+            <aside className="">
               <TableOfContents headings={toc} />
             </aside>
           </div>

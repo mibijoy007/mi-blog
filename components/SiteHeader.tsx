@@ -11,7 +11,7 @@ import { buttonVariants } from "./ui/button";
 import { FaGithub } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import Nav from "./Nav";
-// import { MobileNav } from "./MobileNav";
+import { MobileNav } from "./MobileNav";
 import { ThemeToggle } from "./ThemeToggler";
 
 
@@ -36,6 +36,7 @@ export function SiteHeader() {
               >
                 {/* <Icons.gitHub className="h-4 w-4" /> */}
                 <FaGithub className="h-4 w-4"/>
+                
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
@@ -58,7 +59,7 @@ export function SiteHeader() {
 
             
             <ThemeToggle />
-            {/* <MobileNav /> */}
+            <MobileNav />
           </nav>
         </div>
       </div>

@@ -29,7 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    //"scroll-pt-[4rem]" as the headings doesn't go in the nac when clicking toc
+    <html lang="en" className="scroll-pt-[4rem]">
 
       <body
         className={cn(

@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'path';
 import compileMDXFunc from './compileMDX';
-import { data } from './data';
+// import { data } from './data';
 
 const CONTENT_DIR = './content/docs';
 
@@ -105,8 +105,8 @@ export interface AllBlogDataType {
   published: boolean;
 }
 
-const dataLocal :AllBlogDataType[] = data;
-// const dataLocal :AllBlogDataType[] = [];
+// const dataLocal :AllBlogDataType[] = data;
+const dataLocal :AllBlogDataType[] = [];
 
 export default async function getAllBlogsData() {
   let allBlogData: AllBlogDataType[] = [];

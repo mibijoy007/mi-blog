@@ -61,7 +61,7 @@ export function MobileNav() {
             <Collapsible open={appOpen} onOpenChange={setAppOpen} className="w-full space-y-2">
               <CollapsibleTrigger asChild>
                 <Button variant="default" className="w-full h-8 hover:text-blue-700 hover:bg-gray-400 flex justify-between">
-                  <div>Apps</div>
+                  <div>Apps Made</div>
                   {appOpen ?
                     <div>
                       <ChevronUp className="h-4 w-4" />

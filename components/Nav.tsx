@@ -53,6 +53,15 @@ export default function Nav() {
         Blogs
       </Link>
 
+      <Link
+        href="/tags"
+        className={cn(
+          "text-sm font-medium transition-colors hover:text-blue-500 hidden sm:inline-block",
+          pathname === "/tags" ? "text-foreground" : "text-foreground/60"
+        )}
+      >
+        Tags
+      </Link>
 
       <Link
         href="/about"

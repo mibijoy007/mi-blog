@@ -5,6 +5,7 @@ import getAllBlogsData from "@/lib/getAllBlog"
 // import dynamic from "next/dynamic"
 // const AllBlogsList = dynamic(() => import("../../components/AllBlogsList"))
 import AllBlogsList from "../../components/AllBlogsList";
+import Link from "next/link";
 
 const postsPerPage : number = 5 
 
@@ -33,14 +34,21 @@ export default async function Page({searchParams}: BlogPagePropsType) {
   
   
   return (
-    <div className="container max-w-4xl py-6 lg:py-10 min-h-dvh text-lg">
-      <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-        <div className="flex-1 space-y-4">
-          <h1 className="inline-block font-black text-4xl lg:text-5xl">Blog</h1>
-          <p className="text-xl text-muted-foreground">
+    <div className="container max-w-4xl py-4 min-h-dvh text-lg">
+      <div className="flex items-center gap-4 md:flex-row justify-between  ">
+        <div className="flex  justify-between space-y-4 ">
+          <h1 className=" font-black text-4xl lg:text-5xl ">Blog</h1>
+          {/* <p className="text-xl text-muted-foreground">
             Welcome to my blog.
-          </p>
+          </p> */}
+          
         </div>
+        <Link href='/tags'
+        className="  bg-sky-500/90 rounded-lg px-2 py-1 hover:cursor-pointer hover:bg-sky-600 text-sm"
+
+        >
+            View All Tags
+          </Link>
       </div>
             {/* grid grid-cols-12 */}
       <div className=" gap-3 mt-8">

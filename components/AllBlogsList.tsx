@@ -90,7 +90,7 @@ export default function AllBlogsList({ data }: { data: AllBlogDataType[] }) {
                 </DropdownMenu>
             </div>
 
-            <hr />
+            <hr className="mb-2"/>
             {allBlogsData?.length > 0 ? (
                 <ul className="flex flex-col">
                     {allBlogsData.map((post) => {

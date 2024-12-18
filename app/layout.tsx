@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google"
 import { SiteHeader } from "@/components/SiteHeader";
 import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "@/components/Footer";
 
 const interFont = Inter({
   subsets: ["latin"],
@@ -50,6 +51,7 @@ export default function RootLayout({
             <main className="flex-1">
               <SiteHeader />
               {children}
+              <Footer />
             </main>
           </div>
         </ThemeProvider>

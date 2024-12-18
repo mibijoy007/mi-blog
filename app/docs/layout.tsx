@@ -1,5 +1,5 @@
 // 'use client'
-import Footer from "@/components/Footer";
+
 
 export default function DashboardLayout({children,}: {children: React.ReactNode}) {
 
@@ -13,7 +13,7 @@ export default function DashboardLayout({children,}: {children: React.ReactNode}
           {children}
         </section>
       </main>
-      <Footer />
+      
     </div>
   );
 }

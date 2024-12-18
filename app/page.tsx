@@ -14,9 +14,13 @@ export default function Home() {
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-balance">
             Hello, I&apos;m Maksudul Islam
           </h1>
-          <p className="max-w-[42rem] mx-auto text-muted-foreground sm:text-xl text-balance">
-            Welcome to workfly, A platform where developers can build products faster only worrying about business logic. We&apos;ll take care of the rest.
-          </p>
+          {/* max-w-[42rem] */}
+          <p className="max-w-[55rem] mx-auto text-muted-foreground sm:text-xl text-balance">
+            A Full-Stack Developer with over 3 years of hands-on experience in building dynamic web applications specialized
+            in MERN stack with Typescript. 
+            {/* Committed to delivering better user experiences through innovative solutions and a problem
+            solving mindset. Eager to secure a full-time position where I can contribute my skills to a fast-paced development environment.           */}
+            </p>
           <div className="flex flex-col gap-4 justify-center sm:flex-row">
             <Link
               href="/docs"
@@ -44,17 +48,17 @@ export default function Home() {
         </h2>
 
         <p className=" text-justify">
-        Ever feel like your portfolio just doesn&apos;t stand out? You’ve built projects, but they’re the usual, and it’s hard to get recruiters excited about them. 
+          Ever feel like your portfolio just doesn&apos;t stand out? You’ve built projects, but they’re the usual, and it’s hard to get recruiters excited about them.
 
-Now, imagine creating something truly unique—a solution for a real problem that millions face, done in a way that hasn’t been solved effectively before.
+          Now, imagine creating something truly unique—a solution for a real problem that millions face, done in a way that hasn’t been solved effectively before.
 
-Consider this idea: a platform where developers can build backend APIs, but with a tough limitation—everything must fit within 1MB of code, and each request must execute in under 10ms. For many, writing custom code for routing, middleware, and other core functionalities alone could max out this limit, leaving little room for actual business logic.
+          Consider this idea: a platform where developers can build backend APIs, but with a tough limitation—everything must fit within 1MB of code, and each request must execute in under 10ms. For many, writing custom code for routing, middleware, and other core functionalities alone could max out this limit, leaving little room for actual business logic.
 
-But what if we built a framework for this platform that provides all the essentials, with an interface as familiar and powerful as Express.js, in just 3-5KB? 
-Imagine if this framework handled all core functions—like routing, middleware, and more—in under 1ms. That would leave developers with over 9ms of execution time just for their business logic. 
-This lightweight, high-performance tool could easily reach 100K+ weekly downloads!
+          But what if we built a framework for this platform that provides all the essentials, with an interface as familiar and powerful as Express.js, in just 3-5KB?
+          Imagine if this framework handled all core functions—like routing, middleware, and more—in under 1ms. That would leave developers with over 9ms of execution time just for their business logic.
+          This lightweight, high-performance tool could easily reach 100K+ weekly downloads!
 
-Now imagine what that kind of project could do for your portfolio. Wouldn’t a recruiter stop and take notice? This could be the project that sets you apart and gets you that job offer.
+          Now imagine what that kind of project could do for your portfolio. Wouldn’t a recruiter stop and take notice? This could be the project that sets you apart and gets you that job offer.
         </p>
         {/* <ul className="flex flex-col">
           {latestPosts.map((post) => (

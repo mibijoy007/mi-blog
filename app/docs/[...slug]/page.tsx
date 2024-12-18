@@ -53,10 +53,10 @@ export default async function SingleBlogPage({
       <div className="min-h-dvh">
 
         {/* main content */}
-        <div className="lg:flex container  mx-auto max-w-3xl prose dark:prose-invert ">
+        <div className="lg:flex  mx-auto max-w-3xl prose dark:prose-invert ">
           <div className="">
-            Frontmatter Title : {compiledMDX.frontmatter.title as string}
-            <article className="w-[28rem] md:w-[35rem] lg:w-[50rem] max-w-3xl mx-auto text-lg">{compiledMDX.content}</article>
+            {/* Frontmatter Title : {compiledMDX.frontmatter.title as string} */}
+            <article className="w-[28rem] md:w-[35rem] lg:w-[50rem] max-w-3xl mx-auto md:text-xl">{compiledMDX.content}</article>
           </div>
 
           {/* <div className="flex  ml-44 "> */}

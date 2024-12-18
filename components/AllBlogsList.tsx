@@ -38,7 +38,7 @@ export default function AllBlogsList({ data }: { data: AllBlogDataType[] }) {
     // let allBlogsData: AllBlogDataType[] = []
     
     useEffect(() => {
-        console.log("sortBy  >> ",sortBy);
+        // console.log("sortBy  >> ",sortBy);
         
         if(sortBy === "New to Old") {
             setAllBlogsData(sortBlogs(data, false))
@@ -55,7 +55,7 @@ export default function AllBlogsList({ data }: { data: AllBlogDataType[] }) {
 
     // const allBlogsData = sortBlogs(data)
    
-    console.log("allBlogsData >>  ", allBlogsData);
+    // console.log("allBlogsData >>  ", allBlogsData);
 
     return (
         <div className="col-span-12 col-start-1 sm:col-span-8">

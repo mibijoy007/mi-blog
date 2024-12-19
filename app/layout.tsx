@@ -13,7 +13,7 @@ import { Inter } from "next/font/google"
 import { SiteHeader } from "@/components/SiteHeader";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/lib/siteConfig";
 
 const interFont = Inter({
@@ -27,6 +27,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
 };
 
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color
+export const viewport : Viewport = {
+  themeColor:[
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ]
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,7 +43,9 @@ export default function RootLayout({
   return (
     //"scroll-pt-[4rem]" as the headings doesn't go in the nac when clicking toc
     <html lang="en" className="scroll-pt-[4rem]">
-
+      {/* <head>
+      <meta name="apple-mobile-web-app-title" content="Mi's Blog" />
+      </head> */}
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased"

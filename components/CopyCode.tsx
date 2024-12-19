@@ -138,8 +138,6 @@ const CodeComponent: FC<CodeComponentProps> = ({ children, ...props }) => {
                 <code {...props} className="">{children}</code>
 
             </div>
-            {/* </code>
-            </code> */}
 
         </div>
     );

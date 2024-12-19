@@ -47,10 +47,14 @@ export function MobileNav() {
         <div className="flex flex-col gap-3 mt-3">
           <MobileLink onOpenChange={setOpen}
             href="/docs">
-            Docs
+            Blogs
+          </MobileLink>
+          <MobileLink onOpenChange={setOpen}
+            href="/tags">
+            Tags
           </MobileLink>
           <MobileLink onOpenChange={setOpen} href="/about" >
-            About
+            About Me
           </MobileLink>
           <MobileLink onOpenChange={setOpen} href="/contact">
             Contact

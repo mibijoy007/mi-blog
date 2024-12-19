@@ -80,8 +80,24 @@
     @apply bg-background text-foreground;
   }
 
-  /* .prose pre {
-    @apply bg-transparent text-inherit;
+  /* this fixed the inline code issut also doesn't get mised with the ```code block``` and github theme  */
+   /* .dark  code {
+    background-color: #282c35;
+    padding: 0.2rem 0.2rem;
+    border-radius: 4px;
+    margin: 0;
+    white-space: pre-wrap;
+    display: inline;
+  }
+
+   code {
+    background-color: #e5e5e5;
+    padding: 0rem 0rem;
+    border-radius: 4px;
+    margin: 0px 0px;
   } */
+ 
+  /* padding: 0.2rem 0.2rem; */
+
 }
  

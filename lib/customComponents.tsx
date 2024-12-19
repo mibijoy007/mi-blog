@@ -1,5 +1,5 @@
 import type { MDXComponents } from "mdx/types";
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import React, { Children, DetailedHTMLProps, HTMLAttributes } from "react";
 
 
 
@@ -9,8 +9,11 @@ const CodeComponent = dynamic(() => import("../components/CopyCode"), { ssr: fal
 
 export const customComponents: MDXComponents = {
   pre: ({ children, ...props }: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>) => (
-    <pre {...props} className=" p-0 rounded-lg border border-gray-500 ">
+    <pre {...props} className=" p-0 rounded-lg border border-gray-500 m-0">
      <CodeComponent>{children}</CodeComponent>
     </pre>
   ),
+  // code: ({children } : DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>) =>(
+  //   <code className="">{children}</code>
+  // ),
 };

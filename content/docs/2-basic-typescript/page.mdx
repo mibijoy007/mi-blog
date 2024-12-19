@@ -1,0 +1,42 @@
+---
+global_id: 2
+title: Basic Typescript
+# data:'yyyy-mm-dd'
+date: '2024-12-19'
+description: This is where you get to see all the typescript problems solved that I've faced.
+tags: ["JavaScript", "reactjs", "OOP","Object Oriented Programming",'TypeScript', 2024]
+published: true
+---
+# Why?
+Well, it saves us from a tons of bugs while coding. Plus optional variables are super handy and 
+make life a lot easier.
+
+## Objects
+```ts
+interface ObjectType {
+    [key:sting] : string
+}
+
+const objectName : ObjectType = { 
+    potato : "$5", 
+    beef : "$12", 
+    onion : "$4" 
+  }
+```
+Or you also can use `Record` utility type:
+```ts
+const objectName : Record<string, string>= { potato : "$5", beef : "$12", onion : "$4" }
+```
+
+Here, `Record<string, string>` means the object will have string keys and values of string type.
+It&apos;s a shortcut to define an object where all keys have the same value type.
+
+#### Pros:
+* `Record` is part of TypeScript's standard utility types. Using it aligns with TypeScript idiomatic code practices.
+* When defining deeply nested structures, Record is often more readable:
+```ts
+type NestedWithRecord = Record<string, Record<string, number>> //this one 
+
+type Nested = { [key: string]: { [key: string]: number } };
+```
+> `Record` only shined in nested objects. So just go with the `key` method if your object is just simple.

@@ -36,8 +36,8 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center space-x-6 lg:space-x-8">
-      <Link href="/" className="mr-6 ml-8 flex items-center space-x-2">
+    <nav className="flex items-center space-x-4 lg:space-x-8">
+      <Link href="/" className="mr-6 ml-2 md:ml-8 flex items-center space-x-2">
         {/* <FaCloudSun className=" h-8 w-8"/> */}
         <span className="font-bold  lg:text-xl">{siteConfig.name}</span>
       </Link>
@@ -70,7 +70,7 @@ export default function Nav() {
           pathname === "/about" ? "text-foreground" : "text-foreground/60"
         )}
       >
-        About
+        About Me
       </Link>
 
       <Link

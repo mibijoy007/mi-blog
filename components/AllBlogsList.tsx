@@ -94,7 +94,7 @@ export default function AllBlogsList({ data }: { data: AllBlogDataType[] }) {
             {allBlogsData?.length > 0 ? (
                 <ul className="flex flex-col">
                     {allBlogsData.map((post) => {
-                        const { slug, date, title, description, tags } = post;
+                        const { slug, date, title, description, tags,readingTime } = post;
                         return (
                             <li key={slug}>
                                 <PostItem
@@ -103,6 +103,7 @@ export default function AllBlogsList({ data }: { data: AllBlogDataType[] }) {
                                     title={title}
                                     description={description}
                                     tags={tags}
+                                    readingTime={readingTime}
                                 />
                             </li>
                         );

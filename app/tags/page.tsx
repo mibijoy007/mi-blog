@@ -6,7 +6,7 @@ import getTags, { allTagsType } from "@/lib/getTags";
 export default async function AllTags() {
 
     const allTags :allTagsType = await getTags();
-    console.log("allTags  >> ",allTags);
+    // console.log("allTags  >> ",allTags);
     
     return (
         <div className=" flex flex-col mx-6 md:mx-10 lg:mx-20 my-4">

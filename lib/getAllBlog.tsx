@@ -1,7 +1,9 @@
 
-import fs from 'node:fs';
+import fs, { statSync } from 'node:fs';
 import path from 'path';
 import compileMDXFunc from './compileMDX';
+import { format } from 'node:path';
+import { formatDate } from './utils';
 // import { data } from './data';
 
 const CONTENT_DIR = './content/docs';
@@ -103,6 +105,7 @@ export interface AllBlogDataType {
   description: string;
   tags: string[];
   published: boolean;
+  readingTime:number;
 }
 
 // const dataLocal :AllBlogDataType[] = data;
@@ -116,7 +119,6 @@ export default async function getAllBlogsData() {
     return allBlogData
   }
 
-  console.log("MDX is processing...");
   
   const links: string[] = getAllBlogLinks();
 
@@ -124,10 +126,15 @@ export default async function getAllBlogsData() {
     const fileLink: string = process.cwd() + "/content" + link + 'page.mdx';
     const finalFileLink: string = path.normalize(fileLink).replace(/\\/g, "/");
 
+   
     try {
       // await   
       const fileContent = await fs.promises.readFile(finalFileLink, "utf-8");
       const compiledMDX = await compileMDXFunc(fileContent);
+
+      const wordsCount = fileContent.split(/\s+/).length
+      const wordsPerMinute = 200;
+      const readingTime = Math.ceil(wordsCount /wordsPerMinute)
 
       if (compiledMDX.frontmatter && link) {
         // console.log("frontmatter >> ", compiledMDX.frontmatter.date);
@@ -136,7 +143,18 @@ export default async function getAllBlogsData() {
 
         const slug = link;
         // const frontmatter : Frontmatter  = compiledMDX.frontmatter
-        const date = typeof compiledMDX.frontmatter.date === 'string' ? compiledMDX.frontmatter.date : '' 
+
+        const frontmatterDate = typeof compiledMDX.frontmatter.date === 'string' ? compiledMDX.frontmatter.date : '' 
+        // console.log("frontmatterDate  >> ",frontmatterDate);
+        
+        const fileStats = statSync(fileLink);
+        let date = '' 
+        const fileDate = fileStats.birthtime.toISOString()
+        // console.log("Data >> ",date);
+        frontmatterDate ?  date = frontmatterDate : date = fileDate
+       
+        // console.log("date <>>> ",formatDate(date));
+        
         const title = typeof compiledMDX.frontmatter.title === 'string' ? compiledMDX.frontmatter.title : 'Add Blog Title Here'
         const description = typeof compiledMDX.frontmatter.description === 'string' ? compiledMDX.frontmatter.description : ''
         const published = typeof compiledMDX.frontmatter.published === 'boolean' ? compiledMDX.frontmatter.published : false
@@ -147,7 +165,7 @@ export default async function getAllBlogsData() {
             ? [compiledMDX.frontmatter.tags] 
             : [];
 
-        const item: AllBlogDataType = { slug, date, title, description, tags, published };
+        const item: AllBlogDataType = { slug, date, title, description, tags, published,readingTime };
         allBlogData.push(item);
       }
     } catch (error) {

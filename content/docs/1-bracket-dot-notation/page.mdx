@@ -1,0 +1,66 @@
+---
+global_id: 1
+title: Bracket Notation Instead of Dot Notation
+# data:'yyyy-mm-dd'
+date: '2024-12-19'
+description: This is where you get to see the use of bracket notation in OOP
+tags: ["JavaScript", "reactjs", "OOP","Object Oriented Programming", 2024]
+published: true
+---
+ 
+why should you use bracket notation instead of dot notation (which looks easier)?
+```js
+objectName.propertyName  //dot notation
+objectName["propertyName"]  //bracket notation
+```
+In javascript based frontend library like **react**, most of the time we have to 
+traverse through an array in order to render the components.
+
+Most of the time we end up working with is **array** of **objects**. 
+It's because we deal with a lot of key-value paris. 
+Plus, APIs usually send responses in this format, so we get used to this kind of data structures most of the time. 
+But what if we need only one key_value pair. Should we go with the same approach?
+
+Let's say we're making an e-commerce shop and we only need the **product name** and **prices** (for the sake of this example):
+
+```js
+const arrayName = [
+     {
+        name:"potato",
+        price: "$5"
+    },
+    {
+        name:"beef",
+        price:"$12"
+    },
+    {
+        name:"onion",
+        price:"$4"
+    }
+]
+```
+
+Sometimes it can be prettry complecated where a simple **object** can be the best solution.
+```js
+const objectName ={ potato : "$5", beef : "$12", onion : "$4" }
+```
+
+### Now, 
+This is where bracket notation is useful when tracarsing through the object using `Object.keys()`. Let's see that :
+
+```js
+Object.keys(objectName).map((item) =>{
+    console.log(item); //potato beef onion
+    //const prices = objectName.item //this is what we can't do
+    const prices = objectName[item]
+    console.log(prices); // $5 $12 $4  
+})
+```
+
+
+So, in this scenario we can't use the dot noation as `objectName.item` would literally mean the `key` nammed `item` which doesn't exit.
+
+> I've faced this issue when i was trying to add the `Tags` for my blogs. 
+As I've already got **All blogs data** which is an `array of objects`, 
+I just didn't want to complicate things by making another `array of objects`. 
+so just went with a simple object.

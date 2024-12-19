@@ -44,7 +44,7 @@ export default async function Page({searchParams}: BlogPagePropsType) {
           
         </div>
         <Link href='/tags'
-        className="  bg-sky-500/90 rounded-lg px-2 py-1 hover:cursor-pointer hover:bg-sky-600 text-sm"
+        className="  bg-sky-500/90 rounded-lg px-2 py-1 hover:cursor-pointer hover:bg-sky-600 text-sm text-white"
 
         >
             View All Tags

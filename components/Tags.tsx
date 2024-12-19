@@ -14,7 +14,7 @@ export default  function Tags({allTags}:{allTags:allTagsType}) {
                             className={badgeVariants({
                                 // variant: current ? "default" : "secondary",
                                 variant: "secondary",
-                                className: "no-underline rounded-md text-sm md:text-base m-1 my-1.5 hover:bg-gray-400/40 dark:hover:bg-gray-600",
+                                className: "no-underline rounded-md text-sm md:text-base m-1 my-1.5 hover:bg-gray-400/65 dark:hover:bg-gray-600",
                               })}
                             >
                               {tag} 

@@ -30,7 +30,7 @@ export default async function getTags(){
         if(eachBlogData.tags){
             eachBlogData.tags.forEach((tag:string) =>{
                 // 'rehype pretty' to rehype-pretty
-                tag= tag.toString().replace(" ",'-')
+                tag= tag.toString().replace(/ /g,'-')
                 if(!allTags[tag]){
                     allTags[tag] = []
                 }

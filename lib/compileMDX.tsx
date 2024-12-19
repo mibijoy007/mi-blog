@@ -11,7 +11,7 @@ import { customComponents } from "./customComponents";
 
 
 export default async function compileMDXFunc(fileContent:string) {
-
+  console.log("MDX is processing...")
     const compiledMDX = await compileMDX({
         source: fileContent,
         components: customComponents,
@@ -27,5 +27,5 @@ export default async function compileMDXFunc(fileContent:string) {
         },
       });
   
-    return compiledMDX;
+    return compiledMDX
 }

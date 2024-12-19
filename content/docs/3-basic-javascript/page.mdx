@@ -1,0 +1,25 @@
+{/* ---
+global_id: 
+title: Basic JavaScript
+# data:'yyyy-mm-dd'
+date: '2024-12-19'
+description: This is where you get to see all the javascript problems getting solved that I've faced so far
+tags: ["JavaScript","Prolem Sloving", 2024]
+published: true
+---
+
+## Replace method
+The `replace(" ", "-")` method only replaces the first occurrence of a space,
+```js
+const result = 'example first sting'.replace(' ', '-');
+console.log(result);  // Output: "example-first sting" 
+```
+Here, we can see that the string `example first sting` is not done .
+
+#### But, we can use **RegExp** : 
+
+```js
+const result = 'example first sting'.replace(/ /g, '-');
+console.log(result);  // Output: "example-first-sting"
+```
+Here, The space character (' ') which was denoted by `RegExp` (/ /) is being targeted for replacement, and the `g` flag ensures all spaces are replaced globally */}

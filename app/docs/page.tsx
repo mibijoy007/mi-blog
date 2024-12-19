@@ -6,6 +6,14 @@ import getAllBlogsData from "@/lib/getAllBlog"
 // const AllBlogsList = dynamic(() => import("../../components/AllBlogsList"))
 import AllBlogsList from "../../components/AllBlogsList";
 import Link from "next/link";
+import { Metadata } from "next";
+
+
+export const metadata : Metadata ={
+  title:"All Blogs",
+  description:"This is where you get all the blog posts."
+}
+
 
 const postsPerPage : number = 5 
 
@@ -30,8 +38,6 @@ export default async function Page({searchParams}: BlogPagePropsType) {
   
   const totalPages = Math.ceil(dataWithoutPagination.length / postsPerPage)
   const data = dataWithPagination;
-
-  
   
   return (
     <div className="container max-w-4xl py-4 min-h-dvh text-lg">

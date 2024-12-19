@@ -1,8 +1,8 @@
 export const siteConfig = {
-    name: "Mi's",
-    url: "https://www.google.com",
-    description: "A Blog made by Mi using nextjs14, typescript, MDX, tailwind, shadcn, ",
-    author: "mibijoy007",
+    name: "Mi's Blog",
+    url: "https://www.localhost:3000",
+    description: "A Blog made by mibijoy using nextjs14, typescript, MDX, tailwind, shadcn with other technologies. It's going to be about all problems and their possible soultions related to web development with other technical stuff. ",
+    author: "mibijoy",
     links: {
       twitter: "https://x.com/MaksudulIslam71",
       github: "https://github.com/mibijoy007",

@@ -12,20 +12,20 @@ export const appsDetails: appsDetailsType[] = [
     link: "https://huggingface.co/spaces/Maksudul/prescribtion-reader",
     target: "_blank",
     rel: "noreferrer",
-    description: "Upload your prescription image and an Ai will analyze and provide feedback on the medications."
+    description: "Upload a prescription image to see if the medicines are right or not with a help of Ai."
   },
   {
     title: "Hadith Chat",
     link: "https://huggingface.co/spaces/Maksudul/hadith-strmlit",
     target: "_blank",
     rel: "noreferrer",
-    description: "Ask your islamic questions and an Ai trained in Hadith will answer along with references."
+    description: "Ask islamic questions & an Ai trained in Hadith will answer with references."
   },
   // {title : "Google", link:"https://google.com", target:"_blank",rel:"noreferrer"},
   {
     title: "Blog",
     link: "/docs",
-    description: "A personal blog where I share my personal experiences, Solutions of the problems I face and lots more "
+    description: "Sharing my experiences, Solutions to problems I face, and  more"
   },
 
 ]

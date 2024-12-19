@@ -1,9 +1,11 @@
 
 import TagsArrayInput from "@/components/TagsArrayInput";
-import { TableOfContents } from "@/components/Toc";
+// import { TableOfContents } from "@/components/Toc";
 import compileMDXFunc from "@/lib/compileMDX";
-import { extractTOCFromSource } from "@/lib/extractTOC";
+// import { extractTOCFromSource } from "@/lib/extractTOC";
+import { siteConfig } from "@/lib/siteConfig";
 import { formatDate } from "@/lib/utils";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import fs, { statSync } from "node:fs";
 import path from "node:path";
@@ -25,8 +27,77 @@ export async function generateStaticParams() {
     };
   });
   // console.log("static params (paths) >> " , paths);
-
   return paths;
+}
+
+interface PagePropsType {
+  params: {
+    slug:string[]
+  }
+}
+
+
+export async function generateMetadata({params}:PagePropsType
+): Promise<Metadata> {
+
+  
+  const slugPath = params.slug.join("/");
+  console.log("slugPath   >>>",`/docs/${slugPath}`);
+  
+    const filePath = path.join(
+      process.cwd(),
+      "content",
+      "docs",
+      slugPath,
+      "page.mdx"
+    );
+
+    const fileContent = await fs.promises.readFile(filePath, "utf-8");
+    const compiledMDX = await compileMDXFunc(fileContent)
+
+    if(!compiledMDX.content){
+      return {};
+    }
+
+    const openGraphImageSearchParams = new URLSearchParams();
+
+      openGraphImageSearchParams.set("title",compiledMDX.frontmatter.title as string)
+    
+
+  return {
+    title: compiledMDX.frontmatter.title as string,
+    description : compiledMDX.frontmatter.description as string,
+    authors : {name : siteConfig.author},
+    openGraph:{
+      title: compiledMDX.frontmatter.title as string,
+      description : compiledMDX.frontmatter.description as string,
+      type : "article",
+      url : `/docs/${slugPath}`,
+      images : [
+        {
+          url : `/api/opengraph-image?${openGraphImageSearchParams.toString()}`,
+          width: 1200,
+          height: 630,
+          alt: compiledMDX.frontmatter.title as string,
+        }
+      ]
+    },
+    twitter : {
+      card : "summary_large_image",
+      title: compiledMDX.frontmatter.title as string,
+      description: compiledMDX.frontmatter.description as string,
+      // images : [`/api/opengraph-image?${openGraphImageSearchParams.toString()}`]
+      images : [
+        {
+          url : `/api/opengraph-image?${openGraphImageSearchParams.toString()}`,
+          // we won't specify width for twitter OG image
+          alt: compiledMDX.frontmatter.title as string,
+        }
+      ]
+    }
+
+
+  }
 }
 
 
@@ -49,7 +120,7 @@ export default async function SingleBlogPage({
     );
 
     const fileContent = await fs.promises.readFile(filePath, "utf-8");
-    const toc = extractTOCFromSource(fileContent)
+    // const toc = extractTOCFromSource(fileContent)
 
     
     const compiledMDX = await compileMDXFunc(fileContent)
@@ -57,8 +128,12 @@ export default async function SingleBlogPage({
     const frontmatterDate = typeof compiledMDX.frontmatter.date === 'string' ? compiledMDX.frontmatter.date : '' 
     const fileStats = statSync(filePath); 
     const fileDate = fileStats.birthtime.toISOString()
-    frontmatterDate ?  date = frontmatterDate : date = fileDate
-
+    // frontmatterDate ?  date = frontmatterDate : date = fileDate
+    if (frontmatterDate) {
+      date = frontmatterDate;
+    } else {
+      date = fileDate;
+    }
    
     const wordsCount = fileContent.split(/\s+/).length
     const wordsPerMinute = 200;

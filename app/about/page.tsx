@@ -1,9 +1,14 @@
 import { buttonVariants } from "@/components/ui/button"
 import { siteConfig } from "@/lib/siteConfig"
 import { cn } from "@/lib/utils"
+import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
+export const metadata:Metadata ={
+  title:"About Me",
+  description: "This page is about me(The auther) and my journey as a full stack web developer"
+}
 
 const AboutPage = () => {
   return (

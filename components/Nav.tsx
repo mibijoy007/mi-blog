@@ -3,7 +3,7 @@
 
 // import { Icons } from "./icons";
 import Link from "next/link";
-import { siteConfig } from "@/lib/siteConfig";
+// import { siteConfig } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 // import { FaCloudSun } from "react-icons/fa";
@@ -39,7 +39,7 @@ export default function Nav() {
     <nav className="flex items-center space-x-4 lg:space-x-8">
       <Link href="/" className="mr-6 ml-2 md:ml-8 flex items-center space-x-2">
         {/* <FaCloudSun className=" h-8 w-8"/> */}
-        <span className="font-bold  lg:text-xl">{siteConfig.name}</span>
+        <span className="font-bold  lg:text-xl">Mi&apos;s</span>
       </Link>
 
 

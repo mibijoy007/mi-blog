@@ -2,8 +2,8 @@
 import fs, { statSync } from 'node:fs';
 import path from 'path';
 import compileMDXFunc from './compileMDX';
-import { format } from 'node:path';
-import { formatDate } from './utils';
+// import { format } from 'node:path';
+// import { formatDate } from './utils';
 // import { data } from './data';
 
 const CONTENT_DIR = './content/docs';
@@ -151,7 +151,12 @@ export default async function getAllBlogsData() {
         let date = '' 
         const fileDate = fileStats.birthtime.toISOString()
         // console.log("Data >> ",date);
-        frontmatterDate ?  date = frontmatterDate : date = fileDate
+        // frontmatterDate ?  date = frontmatterDate : date = fileDate
+        if (frontmatterDate) {
+          date = frontmatterDate;
+        } else {
+          date = fileDate;
+        }
        
         // console.log("date <>>> ",formatDate(date));
         

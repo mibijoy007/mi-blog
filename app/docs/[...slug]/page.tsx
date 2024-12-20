@@ -24,9 +24,14 @@ export async function generateStaticParams() {
   const docsDir = path.join( "content", "docs");
   const files = await fs.promises.readdir(docsDir);
   const paths = files.map((slug) => {
-    return {
-      slug: slug.split("/"),
-    };
+
+    if(slug != '.gitkeep'){
+     
+      return {
+        slug: slug.split("/"),
+      };
+    }
+
   });
   // console.log("static params (paths) >> " , paths);
   return paths;
@@ -46,13 +51,17 @@ export async function generateMetadata({params}:PagePropsType
   const slugPath = params.slug.join("/");
   // console.log("slugPath   >>>",`/docs/${slugPath}`);
   
-    const filePath = path.join(
+  let filePath = ''
+
+  if(slugPath != '.gitkeep'){
+     filePath = path.join(
       // process.cwd(),
       "content",
       "docs",
       slugPath,
       "page.mdx"
     );
+  }
 
     const fileContent = await fs.promises.readFile(filePath, "utf-8");
     const compiledMDX = await compileMDXFunc(fileContent)
@@ -114,6 +123,7 @@ export default async function SingleBlogPage({
     const slugPath = params.slug.join("/");
     // console.log(slugPath);
     let filePath = ''
+
     if(slugPath != '.gitkeep'){
        filePath = path.join(
         // process.cwd(),

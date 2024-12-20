@@ -20,7 +20,8 @@ import path from "node:path";
 
 export async function generateStaticParams() {
   // Get the list of all MDX files from the docs folder
-  const docsDir = path.join(process.cwd(), "content", "docs");
+  // const docsDir = path.join(process.cwd(), "content", "docs");
+  const docsDir = path.join( "content", "docs");
   const files = await fs.promises.readdir(docsDir);
   const paths = files.map((slug) => {
     return {
@@ -46,7 +47,7 @@ export async function generateMetadata({params}:PagePropsType
   // console.log("slugPath   >>>",`/docs/${slugPath}`);
   
     const filePath = path.join(
-      process.cwd(),
+      // process.cwd(),
       "content",
       "docs",
       slugPath,
@@ -112,7 +113,7 @@ export default async function SingleBlogPage({
   try {
     const slugPath = params.slug.join("/");
     const filePath = path.join(
-      process.cwd(),
+      // process.cwd(),
       "content",
       "docs",
       slugPath,

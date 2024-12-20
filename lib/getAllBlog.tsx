@@ -6,7 +6,7 @@ import compileMDXFunc from './compileMDX';
 // import { formatDate } from './utils';
 // import { data } from './data';
 
-const CONTENT_DIR = './content/docs';
+const CONTENT_DIR = 'content/docs';
 
 // export function getMdxLinks() {
 
@@ -14,7 +14,9 @@ export function getAllBlogLinks() {
   const links: string[] = [];
 
   function walkDir(currentPath: string) {
+    
     const files = fs.readdirSync(currentPath);
+    // console.log("curr  >> ",currentPath);
 
     for (const file of files) {
       const fullPath = path.join(currentPath, file);

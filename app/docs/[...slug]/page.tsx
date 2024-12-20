@@ -112,13 +112,18 @@ export default async function SingleBlogPage({
   // console.log("FULL PARAMS:", params);
   try {
     const slugPath = params.slug.join("/");
-    const filePath = path.join(
-      // process.cwd(),
-      "content",
-      "docs",
-      slugPath,
-      "page.mdx"
-    );
+    // console.log(slugPath);
+    let filePath = ''
+    if(slugPath != '.gitkeep'){
+       filePath = path.join(
+        // process.cwd(),
+        "content",
+        "docs",
+        slugPath,
+        "page.mdx"
+      );
+    }
+    
 
     const fileContent = await fs.promises.readFile(filePath, "utf-8");
     // const toc = extractTOCFromSource(fileContent)

@@ -6,7 +6,7 @@ import compileMDXFunc from './compileMDX';
 // import { formatDate } from './utils';
 // import { data } from './data';
 
-const CONTENT_DIR = 'content/docs';
+const CONTENT_DIR = './content/docs';
 
 // export function getMdxLinks() {
 
@@ -16,13 +16,15 @@ export function getAllBlogLinks() {
   function walkDir(currentPath: string) {
     
     const files = fs.readdirSync(currentPath);
-    // console.log("curr  >> ",currentPath);
+    // console.log("curr  >> ",files);
 
     for (const file of files) {
       const fullPath = path.join(currentPath, file);
       const stats = fs.statSync(fullPath);
-
-
+      // console.log("file name: ",file);
+      
+      // console.log("start",stats.isDirectory());
+      
       if (stats.isDirectory()) {
         walkDir(fullPath);
       } else if (file.endsWith('.mdx')) {
@@ -36,7 +38,7 @@ export function getAllBlogLinks() {
   walkDir(CONTENT_DIR);
 
   const finalLinks: string[] = links.map((link) => link.replace(/\\/g, '/'));
-  //   console.log('finalLinks >>>',finalLinks);
+    // console.log('finalLinks >>>',finalLinks);
 
   return finalLinks// Normalize for all OS
 
@@ -126,8 +128,10 @@ export default async function getAllBlogsData() {
 
   for (const link of links) {
     const fileLink: string = process.cwd() + "/content" + link + 'page.mdx';
+    // console.log("fileLink  >> ",fileLink);
+    
     const finalFileLink: string = path.normalize(fileLink).replace(/\\/g, "/");
-
+    
    
     try {
       // await   

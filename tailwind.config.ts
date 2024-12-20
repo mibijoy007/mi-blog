@@ -23,6 +23,16 @@ const config: Config = {
   		}
   	},
   	extend: {
+		screens: {
+			'sc350' : '350px',
+			'sc390' : '390px',
+			'sc430' : '430px',
+			'sc480' : '480px',
+			'sc530' : '530px',
+			'sc570' : '570px',
+			'sc610' : '610px',
+			
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

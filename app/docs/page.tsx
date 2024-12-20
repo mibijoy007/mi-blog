@@ -40,7 +40,7 @@ export default async function Page({searchParams}: BlogPagePropsType) {
   const data = dataWithPagination;
   
   return (
-    <div className="container max-w-4xl py-4 min-h-dvh text-lg">
+    <div className="container md:max-w-4xl py-4 min-h-dvh text-lg">
       <div className="flex items-center gap-4 md:flex-row justify-between  ">
         <div className="flex  justify-between space-y-4 ">
           <h1 className=" font-black text-4xl lg:text-5xl ">Blog</h1>

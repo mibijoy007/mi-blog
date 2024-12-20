@@ -31,7 +31,7 @@ export function MobileNav() {
           <span className="sr-only">Toggle Theme</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className=" w-60">
+      <SheetContent side="right" className=" w-60 text-xl">
         <MobileLink
           onOpenChange={setOpen}
           href="/"
@@ -39,12 +39,12 @@ export function MobileNav() {
 
         >
           {/* <FaCloudSun className="mr-2 h-6 w-6" /> */}
-          <span className="font-bold text-lg font-serif">{siteConfig.name}</span>
+          <span className="font-bold text-2xl  font-serif">{siteConfig.name}</span>
 
-          <div className="my-2 bg-gray-200 dark:bg-slate-800 w-full h-[1.5px] rounded-full" />
+          <div className="my-2 bg-gray-300 dark:bg-slate-600 w-full h-[1.5px] rounded-full" />
 
         </MobileLink>
-        <div className="flex flex-col gap-3 mt-3">
+        <div className="flex flex-col gap-3 mt-3 text-lg">
           <MobileLink onOpenChange={setOpen}
             href="/docs">
             Blogs
@@ -101,7 +101,7 @@ export function MobileNav() {
             </Collapsible>
           </div>
 
-          <div className="my-2 bg-gray-200 dark:bg-slate-800 w-full h-[1.5px] rounded-full" />
+          <div className="my-2 bg-gray-300 dark:bg-slate-600 w-full h-[1.5px] rounded-full" />
 
           <div className="flex items-center justify-center gap-6 ">
             <Link target="_blank" rel="noreferrer"

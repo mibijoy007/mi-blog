@@ -36,6 +36,8 @@ export default function AllBlogsList({ data }: { data: AllBlogDataType[] }) {
     const [allBlogsData,setAllBlogsData]=useState<AllBlogDataType[]>([])
 
     // let allBlogsData: AllBlogDataType[] = []
+    // console.log("data >> ", data);
+    // console.log("data sorted>> ", data.sort());
     
     useEffect(() => {
         // console.log("sortBy  >> ",sortBy);
@@ -47,7 +49,7 @@ export default function AllBlogsList({ data }: { data: AllBlogDataType[] }) {
             setAllBlogsData(sortBlogs(data, true))
         }
         else {
-            
+            // this sort is besed on slug not title
             setAllBlogsData(data.sort())
         }
         

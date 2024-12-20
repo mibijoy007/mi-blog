@@ -1,6 +1,6 @@
 export const siteConfig = {
     name: "Mi's Blog",
-    url: "https://mi-blog-beta.vercel.app/",
+    url: "https://mi-blog-ryq7.onrender.com/",
     description: "A Blog made by mibijoy using nextjs14, typescript, MDX, tailwind, shadcn with other technologies. It's going to be about all problems and their possible soultions related to web development with other technical stuff. ",
     author: "mibijoy",
     links: {

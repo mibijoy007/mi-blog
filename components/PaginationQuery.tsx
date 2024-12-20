@@ -10,6 +10,7 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
+import { cn } from "@/lib/utils";
 
 import { usePathname, useSearchParams } from "next/navigation";
 
@@ -58,10 +59,11 @@ export default function PaginationQuery({ className, totalPages }: PaginationQue
 
                 {
                     Array.from({ length: totalPages as number }, (_, index) => (
-                        <PaginationItem key={`pageNo-${index}`}>
+                        <PaginationItem key={`pageNo-${index}`} >
                             {/* <PaginationLink href={createPageUrl(currentPage)}>{currentPage}</PaginationLink> */}
                             <PaginationLink href={createPageUrl(index + 1)} 
-                            className={currentPage == index+1 ? " bg-sky-500 text-white" : ""}
+                            className={cn(currentPage == index+1 ? " bg-sky-500 text-white" : "", 
+                                            " p-0 w-6 h-8  text-xs")}
                             // isActive={currentPage == index+1 }
                             >
                                 {index + 1}

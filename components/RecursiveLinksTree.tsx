@@ -1,35 +1,38 @@
-import { NodeType } from "@/lib/getAllBlog";
-import Link from "next/link";
+// // // this is for toc and sidebar
 
 
-export default function RecursiveLinksTree({allBlogLinksTree}: {allBlogLinksTree : NodeType[]}) {
-    // console.log("allBlogLinksTree",allBlogLinksTree);
+// import { NodeType } from "@/lib/getAllBlog";
+// import Link from "next/link";
+
+
+// export default function RecursiveLinksTree({allBlogLinksTree}: {allBlogLinksTree : NodeType[]}) {
+//     // console.log("allBlogLinksTree",allBlogLinksTree);
     
-    return (
-        <div>
-            <ul>
-                {allBlogLinksTree.map((items) => (
+//     return (
+//         <div>
+//             <ul>
+//                 {allBlogLinksTree.map((items) => (
                     
-                        <li key={items.name}>
-                            <Link href={items.path} className="hover:underline"> {items.name} </Link> 
+//                         <li key={items.name}>
+//                             <Link href={items.path} className="hover:underline"> {items.name} </Link> 
                             
-                            {items.children.length > 0 && items.children.length < 3 &&
+//                             {items.children.length > 0 && items.children.length < 3 &&
                              
-                             (  
-                                <div className=" flex gap-4 ">
-                                    {" >> "}
-                                 <RecursiveLinksTree allBlogLinksTree={items.children}/>
-                                </div>
-                             )
+//                              (  
+//                                 <div className=" flex gap-4 ">
+//                                     {" >> "}
+//                                  <RecursiveLinksTree allBlogLinksTree={items.children}/>
+//                                 </div>
+//                              )
                             
-                            }
+//                             }
 
-                        </li>
+//                         </li>
 
                    
-                ))}
-            </ul>
-        </div>
-    )
-}
+//                 ))}
+//             </ul>
+//         </div>
+//     )
+// }
 

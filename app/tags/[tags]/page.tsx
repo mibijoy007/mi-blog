@@ -5,8 +5,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 
-export async function generateMetaData({params}: { params: { tags: string } }) : Promise<Metadata> {
+export async function generateMetadata({params}: { params: { tags: string } }) : Promise<Metadata> {
     const tag = params?.tags
+    
     return {
         title: tag,
         description: `Posts on related to the topic ${tag}`

@@ -1,0 +1,22 @@
+{
+    
+    "files": [
+      "content/**",
+      "public/**",
+      "components/**",
+      "pages/**",
+      "styles/**",
+      "app/**",
+      "lib/**",
+      "hooks/**",
+      "package.json",
+      "next.config.mjs",
+      "tsconfig.json",
+      "vercel.json",
+      "tailwind.config.ts",
+      "postcss.config.mjs",
+      "next-env.d.ts",
+      "mdx-components.tsx",
+      "components.json"
+    ]
+  }

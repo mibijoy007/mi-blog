@@ -1,26 +1,60 @@
-
-import nextMdx from '@next/mdx'
-// import remarkGfm from 'remark-gfm'
-// import rehypePrettyCode from 'rehype-pretty-code'
-import rehypeHighlight from 'rehype-highlight'
-
-const withMdx = nextMdx({
-  extension: /\.mdx?$/,
-  options: {
-    // these are not needed when working with createMDX
-    // remarkPlugins: [remarkGfm],
-    rehypePlugins: [
-      // [ rehypePrettyCode, { theme: 'github-dark'} ]
-      // [rehypeHighlight, { theme: 'github-dark' }],
-    ],
-  }
-})
-
-const nextConfig = withMdx({
+const nextConfig = {
   pageExtensions: ['md', 'mdx', 'tsx', 'ts', 'jsx', 'js'],
-})
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        // port: '',
+        pathname: '/wikipedia/commons/**',
+        // search: '',
+      },
+    ],
+  },
+};
 
 export default nextConfig;
+
+// =======================================================
+
+// import nextMdx from '@next/mdx'
+// import remarkGfm from 'remark-gfm'
+// import rehypePrettyCode from 'rehype-pretty-code'
+// import rehypeHighlight from 'rehype-highlight'
+
+// const withMdx = nextMdx({
+//   extension: /\.mdx?$/,
+//   options: {
+//     // these are not needed when working with createMDX
+//     // remarkPlugins: [remarkGfm],
+//     rehypePlugins: [
+//       // [ rehypePrettyCode, { theme: 'github-dark'} ]
+//       // [rehypeHighlight, { theme: 'github-dark' }],
+//     ],
+//   }
+// })
+
+
+// export default nextConfig;
+
+// const nextConfig = {
+//   pageExtensions: ['md', 'mdx', 'tsx', 'ts', 'jsx', 'js'],
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: 'https',
+//         hostname: 'upload.wikimedia.org',
+//         port: '',
+//         pathname: '/wikipedia/commons/**',
+//         search: '',
+//       },
+//     ],
+//   },
+// };
+
+
+// // export default withMdx(nextConfig);
+// export default nextConfig;
 
 
 // =====================

@@ -39,7 +39,7 @@ export default function Nav() {
     <nav className="flex items-center space-x-4 lg:space-x-8">
       <Link href="/" className="mr-6 ml-2 md:ml-8 flex items-center space-x-2">
         {/* <FaCloudSun className=" h-8 w-8"/> */}
-        <span className="font-bold  lg:text-xl">Mi&apos;s</span>
+        <span className="font-bold text-2xl sm:text-xl lg:text-3xl">Mi&apos;s</span>
       </Link>
 
 
@@ -89,7 +89,7 @@ export default function Nav() {
             <NavigationMenuItem>
               <NavigationMenuTrigger className="border-2 border-gray-400 rounded-lg w-40 hover:text-blue-500">Apps Made</NavigationMenuTrigger>
               <NavigationMenuContent className=" dark:bg-slate-900">
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                <ul className="grid w-[280px] md:w-[400px] gap-3 p-4 lg:grid-cols-2 lg:w-[550px] xl:w-[650px] ">
                   {appsDetails.map((component: appsDetailsType) => (
                     <ListItem
                       key={component.title}

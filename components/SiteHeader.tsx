@@ -22,7 +22,7 @@ export function SiteHeader() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <Nav/>
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <nav className="flex items-center">
+          <nav className="flex items-center md:mr-5">
             <Link
               href={siteConfig.links.github}
               target="_blank"

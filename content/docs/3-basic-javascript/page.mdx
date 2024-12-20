@@ -1,5 +1,5 @@
-{/* ---
-global_id: 
+---
+global_id: 3
 title: Basic JavaScript
 # data:'yyyy-mm-dd'
 date: '2024-12-19'
@@ -7,8 +7,25 @@ description: This is where you get to see all the javascript problems getting so
 tags: ["JavaScript","Prolem Sloving", 2024]
 published: true
 ---
+import Image from 'next/image'
+import { ImageComponentForMDX } from "@/components/ImageComponentForMDX";
+
+{/* <Image alt="github-avatar" width={80} height={80} src={'/icon.png'} className='rounded-full w-full'/> */}
+<div className='flex justify-center items-center m-0 p-0'> 
+<Image alt="github-avatar" width={500} height={300} src={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/900px-JavaScript-logo.png?20120221235433'} 
+className='w-[60%] m-0 mt-2'/>
+{/* this wouldn't work as Error: Expected component `ImageComponentForMDX` to be defined: you likely forgot to import, pass, or provide it. */}
+{/* <ImageComponentForMDX alt="github-avatar" width={800} height={300} className='w-1/2 ' src={'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/900px-JavaScript-logo.png?20120221235433'} /> */}
+</div>
+
+{/* test url outside :[OUTSIDE](https://www.google.com/) */}
+
+You also see : [# TypeSript Page](/docs/2-basic-typescript)
 
 ## Replace method
+
+
+
 The `replace(" ", "-")` method only replaces the first occurrence of a space,
 ```js
 const result = 'example first sting'.replace(' ', '-');
@@ -22,4 +39,5 @@ Here, we can see that the string `example first sting` is not done .
 const result = 'example first sting'.replace(/ /g, '-');
 console.log(result);  // Output: "example-first-sting"
 ```
-Here, The space character (' ') which was denoted by `RegExp` (/ /) is being targeted for replacement, and the `g` flag ensures all spaces are replaced globally */}
+
+Here, The space character (' ') which was denoted by `RegExp` which is (/ /)  being targeted for spaces, and the `g` flag ensures all spaces are replaced globally

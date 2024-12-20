@@ -6,7 +6,8 @@ export const siteConfig = {
     links: {
       twitter: "https://x.com/MaksudulIslam71",
       github: "https://github.com/mibijoy007",
-      linkedIn: "https://www.linkedin.com/in/maksudul998/"
+      linkedIn: "https://www.linkedin.com/in/maksudul998/",
+      email:"mailto:mbijoy6666@gmail.com",
       
     },
   };

@@ -1,7 +1,7 @@
 {
   "name": "Mi's Blog",
   "short_name": "Mi's Blog",
-  "description":"",
+  "description":"A Blog made by mibijoy using nextjs14, typescript, MDX, tailwind, shadcn with other technologies. It's going to be about all problems and their possible soultions related to web development with other technical stuff. ",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -16,7 +16,6 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+
   "display": "standalone"
 }

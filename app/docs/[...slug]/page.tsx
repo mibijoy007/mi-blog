@@ -6,6 +6,7 @@ import compileMDXFunc from "@/lib/compileMDX";
 import { siteConfig } from "@/lib/siteConfig";
 import { formatDate } from "@/lib/utils";
 import { Metadata } from "next";
+// import Image from "next/image";
 import { notFound } from "next/navigation";
 import fs, { statSync } from "node:fs";
 import path from "node:path";
@@ -42,7 +43,7 @@ export async function generateMetadata({params}:PagePropsType
 
   
   const slugPath = params.slug.join("/");
-  console.log("slugPath   >>>",`/docs/${slugPath}`);
+  // console.log("slugPath   >>>",`/docs/${slugPath}`);
   
     const filePath = path.join(
       process.cwd(),
@@ -61,9 +62,8 @@ export async function generateMetadata({params}:PagePropsType
 
     const openGraphImageSearchParams = new URLSearchParams();
 
-      openGraphImageSearchParams.set("title",compiledMDX.frontmatter.title as string)
+    openGraphImageSearchParams.set("title",compiledMDX.frontmatter.title as string)
     
-
   return {
     title: compiledMDX.frontmatter.title as string,
     description : compiledMDX.frontmatter.description as string,
@@ -144,23 +144,50 @@ export default async function SingleBlogPage({
       notFound()
     }
 
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": compiledMDX.frontmatter.title as string,
+      "description" : compiledMDX.frontmatter.description as string,
+      "image": [
+        // "https://example.com/photos/1x1/photo.jpg",
+        // "https://example.com/photos/4x3/photo.jpg",
+        // "https://example.com/photos/16x9/photo.jpg"
+       ],
+      "datePublished": date,
+      "dateModified": date,
+      "author": [{
+          "@type": "Person",
+          "name": siteConfig.author,
+          "url": siteConfig.links.github
+        }
+    ]
+    }
+
+
     return (
       <div className="min-h-dvh">
+
+        {/* jsonLd */}
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
         {/* main content */}
         <div className="lg:flex  mx-auto   max-w-3xl prose dark:prose-invert ">
           
           <div className="">
             {/* Frontmatter Title  */}
-            <h1 className=" font-bold text-3xl lg:text-5xl mb-2 md:mb-3 pb-0 capitalize">
+            <h1 className=" font-bold text-3xl lg:text-5xl mb-3 md:mb-5 pb-0 capitalize">
             {compiledMDX.frontmatter.title as string}
             </h1>
             <div>
 
-            <TagsArrayInput tags={compiledMDX.frontmatter.tags as string[]} />
+            <TagsArrayInput tags={compiledMDX.frontmatter.tags as string[]}  />
             </div>
               <div className="m-2">
-
+              {/* <Image alt="github-avatar" width={80} height={80} src={'/icon.png'}/> */}
             {formatDate(date)} -- {readingTime} min read
               </div>
             <hr className="my-2 p-0"/>
@@ -178,6 +205,7 @@ export default async function SingleBlogPage({
         </div>
 
       </div>
+      
     );
   } catch (error) {
     console.error("FULL ERROR:", error);

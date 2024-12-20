@@ -39,3 +39,7 @@ next-env.d.ts
 
 #data
 /lib/data.ts
+
+#to not ignored
+!content/
+!content/docs/

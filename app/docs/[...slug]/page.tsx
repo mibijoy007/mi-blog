@@ -20,8 +20,8 @@ import path from "node:path";
 
 export async function generateStaticParams() {
   // Get the list of all MDX files from the docs folder
-  // const docsDir = path.join(process.cwd(), "content", "docs");
-  const docsDir = path.join( "content", "docs");
+  const docsDir = path.join(process.cwd(), "content", "docs");
+  // const docsDir = path.join( "content", "docs");
   const files = await fs.promises.readdir(docsDir);
   const paths = files.map((slug) => {
 
@@ -55,7 +55,7 @@ export async function generateMetadata({params}:PagePropsType
 
   if(slugPath != '.gitkeep'){
      filePath = path.join(
-      // process.cwd(),
+      process.cwd(),
       "content",
       "docs",
       slugPath,
@@ -126,7 +126,7 @@ export default async function SingleBlogPage({
 
     if(slugPath != '.gitkeep'){
        filePath = path.join(
-        // process.cwd(),
+        process.cwd(),
         "content",
         "docs",
         slugPath,

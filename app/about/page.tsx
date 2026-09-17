@@ -5,93 +5,175 @@ import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
-export const metadata:Metadata ={
-  title:"About Me",
-  description: "This page is about me(The auther) and my journey as a full stack web developer"
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn more about our journey, background, and technical expertise in web development."
 }
 
 const AboutPage = () => {
   return (
-    <>
-      <section className="space-y-6 pb-8 md:pb-12 md:mt-10 lg:py-">
-        <div className="container flex flex-col gap-4 ">
-
-          <div className=" flex flex-col justify-center items-center">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-balance">
-              About Me
-            </h1>
-            <div className="dark:bg-gray-700 bg-gray-300 my-3 md:my-6 h-[1px] w-1/2 " />
-            <Image
-              width={600}
-              height={80}
-              alt="my-avatar"
-              src={'/my-avatar.jpg'}
-              className="rounded-full w-[8rem] md:w-[12em]"
-            />
-          </div>
-
-          <div className=" mx-auto text-muted-foreground sm:text-xl p-4 md:p-8 lg:p-10">
-            <p>
-              A passionate Full-Stack Web Developer with over 3 years of hands-on experience, specializing in the MERN stack.
-
-            </p>
-            <br />
-            <h2 className="font-bold">TECHNICAL SKILLS</h2>
-            <div>
-
-              ● Languages – JavaScript, Typescript, Python <br />
-              ● Frontend - React, Next.js, Tailwind CSS, Redux (ReduxToolkit & RTKQuery)<br />
-              ● Backend – Node.js, Express.js, FastAPI, Flask<br />
-              ● Databases – PostgreSQL, MongoDB, Prisma<br />
-              ● Tools & Technologies – GitHub, Monorepo, GraphQL, Docker, Kubernetes, CD/CI, AWS
-            </div>
-            <br />
-            <p>
-
-              My journey in web development has equipped me with a deep understanding of both frontend and backend technologies, enabling me to deliver dynamic, high-performance web solutions that prioritize seamless user experiences.
-            </p>
-            <br />
-            I have worked with React and Next.js, utilizing Redux Toolkit and RTK Query for effective state management, ensuring that applications are both performant and maintainable. My expertise in Tailwind CSS has further allowed me to craft visually appealing and highly customizable frontends.
-            <br /><br />
-            On the backend, I have leveraged Node.js and Express.js, along with TypeScript, to create reliable and efficient server-side architectures, ensuring that applications are not only powerful but also secure.
-            <br /><br />
-            I&apos;ve integrated cloud computing and DevOps practices into my development workflow, utilizing AWS for scalable cloud solutions, Docker for containerization, and setting up CD/CI in GitHub to ensure seamless deployment in various environments.
-            <br /><br />
-            In addition to my technical skills, before diving into full-stack development, I spent time teaching high school Math and Physics. This experience was instrumental in developing my analytical thinking and problem-solving abilities. I enjoyed guiding students through complex problems, discussing different approaches, and finding the most effective solutions. This skill set has seamlessly transitioned into my work as a developer, particularly when it comes to debugging complex issues and optimizing applications for performance. I approach every challenge methodically, drawing from a diverse toolkit of programming languages, frameworks, and best practices to find the most effective solution.
-            <br /><br />
-            Recently, I&apos;ve been exploring the integration of AI and Python into web development, aiming to create smarter applications. This exploration is driven by my desire to stay at the forefront of technology and continuously improve the efficiency and impact of the solutions I develop.
-            <br /><br />
-            {/* I am actively seeking a full-time position where I can contribute my skills to innovative projects, collaborate with talented teams, and continue expanding my expertise in a fast-paced development environment. */}
-            I open to work where I can contribute my skills to innovative projects, collaborate with talented teams, and continue expanding my expertise in a fast-paced development environment.
-            <br /><br />
-            Thanks for reading.
-          </div>
-          <div className="flex flex-col gap-4 justify-center sm:flex-row">
-            <Link
-              target="_blank"
-              rel="noreferrer"
-              href={siteConfig.links.linkedIn}
-              className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-fit")}
-            >
-              LinkedIn
-            </Link>
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "w-full sm:w-fit"
-              )}
-            >
-              GitHub
-            </Link>
-          </div>
+    <section className="space-y-12 pb-8 md:pb-12 md:mt-10">
+      <div className="container flex flex-col gap-8">
+        
+        {/* Main Header */}
+        <div className="flex flex-col justify-center md:mt-5 mt-10 items-center text-center">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-balance">
+            About Us
+          </h1>
+          <p className="mt-2 text-muted-foreground sm:text-lg max-w-xl">
+            Passionate software developers crafting modern, high-performance web solutions.
+          </p>
+          <div className="dark:bg-gray-700 bg-gray-300 my-4 md:my-6 h-[1px] w-1/2" />
         </div>
-      </section>
 
-    </>
+        {/* Profiles Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-stretch">
+          
+          {/* ==================== PORTION 1: BROTHER'S PROFILE ==================== */}
+          <div className="flex flex-col justify-between p-6 md:p-8 rounded-2xl border bg-card text-card-foreground shadow-sm h-full">
+            <div className="flex flex-col flex-1 space-y-6">
+              
+              {/* Profile Header */}
+              <div className="flex flex-col items-center text-center">
+                <Image
+                  width={600}
+                  height={80}
+                  alt="Brother's Avatar"
+                  src="/my-avatar.jpg"
+                  className="rounded-full w-[8rem] md:w-[10rem] h-[8rem] md:h-[10rem] object-cover mb-4 border-2 border-primary"
+                />
+                <h2 className="text-2xl md:text-3xl font-bold">Maksudul</h2>
+                <h2 className="text-xl md:text-2xl font-bold">Full-Stack Developer</h2>
+                <span className="text-sm text-muted-foreground font-medium">3+ Years Experience</span>
+              </div>
 
+              {/* Bio & Skills */}
+              <div className="flex-1 space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+                <p>
+                  A passionate Full-Stack Web Developer with over 3 years of hands-on experience, specializing in the MERN stack.
+                </p>
+
+                <div className="space-y-2 pt-2">
+                  <h3 className="font-bold text-foreground text-xs uppercase tracking-wider">Technical Skills</h3>
+                  <ul className="space-y-1 list-disc list-inside text-sm">
+                    <li><strong className="text-foreground">Languages:</strong> JavaScript, TypeScript, Python</li>
+                    <li><strong className="text-foreground">Frontend:</strong> React, Next.js, Tailwind CSS, Redux (ReduxToolkit & RTKQuery)</li>
+                    <li><strong className="text-foreground">Backend:</strong> Node.js, Express.js, FastAPI, Flask</li>
+                    <li><strong className="text-foreground">Databases:</strong> PostgreSQL, MongoDB, Prisma</li>
+                    <li><strong className="text-foreground">DevOps & Tools:</strong> GitHub, Monorepo, GraphQL, Docker, Kubernetes, CI/CD, AWS</li>
+                  </ul>
+                </div>
+
+                <p>
+                  My journey in web development equips me to build dynamic, high-performance solutions. Before full-stack development, I taught high school Math and Physics, which sharpened my analytical thinking and methodical problem-solving skills.
+                </p>
+                <p>
+                  Recently, I&apos;ve been exploring AI and Python integration to create smarter applications and continuously push technical boundaries.
+                </p>
+              </div>
+            </div>
+
+            {/* Links Section - Balanced with empty placeholder for mailto link height */}
+            <div className="mt-6 pt-4 border-t flex flex-col gap-3">
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  target="_blank"
+                  rel="noreferrer"
+                  href={siteConfig.links.linkedIn}
+                  className={cn(buttonVariants({ size: "sm" }), "flex-1 text-center")}
+                >
+                  LinkedIn
+                </Link>
+                <Link
+                  target="_blank"
+                  rel="noreferrer"
+                  href={siteConfig.links.github}
+                  className={cn(buttonVariants({ variant: "outline", size: "sm" }), "flex-1 text-center")}
+                >
+                  GitHub
+                </Link>
+              </div>
+              <div className="h-9 hidden md:block" aria-hidden="true" />
+            </div>
+          </div>
+
+          {/* ==================== PORTION 2: Durjoy ==================== */}
+          <div className="flex flex-col justify-between p-6 md:p-8 rounded-2xl border bg-card text-card-foreground shadow-sm h-full">
+            <div className="flex flex-col flex-1 space-y-6">
+              
+              {/* Profile Header */}
+              <div className="flex flex-col items-center text-center">
+                <Image
+                  width={600}
+                  height={600}
+                  alt="Mohaiminul Islam Durjoy"
+                  src="/durjoy-avatar.jpg"
+                  className="rounded-full w-[8rem] md:w-[10rem] h-[8rem] md:h-[10rem] object-cover mb-4 border-2 border-primary"
+                />
+                <h2 className="text-2xl md:text-3xl font-bold">Mohaiminul</h2>
+                <h2 className="text-xl md:text-2xl font-bold">Front-End Developer</h2>
+                {/* Spacer to align sub-titles when experience badge isn't present */}
+                <span className="text-sm font-medium opacity-0 select-none hidden md:inline-block">Spacer</span>
+              </div>
+
+              {/* Bio & Skills */}
+              <div className="flex-1 space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+                <p>
+                  I&apos;m a Front-End Developer focused on building responsive, functional, and user-centered web interfaces. I specialize in crafting clean code and intuitive experiences within the modern React ecosystem.
+                </p>
+
+                <div className="space-y-2 pt-2">
+                  <h3 className="font-bold text-foreground text-xs uppercase tracking-wider">Technical Skills & Tools</h3>
+                  <ul className="space-y-1 list-disc list-inside text-sm">
+                    <li><strong className="text-foreground">Core Tech:</strong> HTML5, CSS3, JavaScript (ES6+), TypeScript</li>
+                    <li><strong className="text-foreground">Frameworks:</strong> React, Next.js</li>
+                    <li><strong className="text-foreground">Styling:</strong> Tailwind CSS</li>
+                    <li><strong className="text-foreground">Design & Tools:</strong> UI/UX Principles, Figma, Node.js, Git, GitHub</li>
+                  </ul>
+                </div>
+
+                <p>
+                  I use TypeScript for writing predictable code and Tailwind CSS for rapid, utility-first styling. I maintain a strong understanding of UI/UX workflows, leveraging Figma to seamlessly convert designs into clean frontend UI components.
+                </p>
+                <p>
+                  Located in Joypurhat, Rajshahi Division, Bangladesh — always open to collaborating on innovative frontend projects and building impactful digital experiences.
+                </p>
+              </div>
+            </div>
+
+            {/* Links Section */}
+            <div className="mt-6 pt-4 border-t flex flex-col gap-3">
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  target="_blank"
+                  rel="noreferrer"
+                  // href="https://mohaiminul-durjoy.vercel.app/"
+                  href="https://www.linkedin.com/in/mohaiminul-islam-3a17652b7/"
+                  className={cn(buttonVariants({ size: "sm" }), "flex-1 text-center")}
+                >
+                  LinkedIn
+                </Link>
+                <Link
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/Mohaiminul007"
+                  className={cn(buttonVariants({ variant: "outline", size: "sm" }), "flex-1 text-center")}
+                >
+                  GitHub
+                </Link>
+              </div>
+              <a
+                href="mailto:mohaimin.durjoy@gmail.com"
+                className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "w-full text-center")}
+              >
+                mohaimin.durjoy@gmail.com
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
   )
 }
 

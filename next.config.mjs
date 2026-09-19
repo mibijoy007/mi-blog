@@ -1,3 +1,5 @@
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['md', 'mdx', 'tsx', 'ts', 'jsx', 'js'],
   images: {
@@ -5,15 +7,36 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'upload.wikimedia.org',
-        // port: '',
         pathname: '/wikipedia/commons/**',
-        // search: '',
       },
     ],
+  },
+  // Forces Next.js & OpenNext to trace and bundle raw MDX/MD files into the worker
+  outputFileTracingIncludes: {
+    '/*': ['./content/**/*', './docs/**/*', './posts/**/*', './src/content/**/*'],
   },
 };
 
 export default nextConfig;
+
+
+// ==================================================================
+// const nextConfig = {
+//   pageExtensions: ['md', 'mdx', 'tsx', 'ts', 'jsx', 'js'],
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: 'https',
+//         hostname: 'upload.wikimedia.org',
+//         // port: '',
+//         pathname: '/wikipedia/commons/**',
+//         // search: '',
+//       },
+//     ],
+//   },
+// };
+
+// export default nextConfig;
 
 // =======================================================
 
